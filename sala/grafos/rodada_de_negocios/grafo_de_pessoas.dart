@@ -1,4 +1,4 @@
-import 'package:sala/grafos/rodada_de_negocios/pessoa.dart';
+import 'pessoa.dart';
 
 class GrafoDePessoas {
   void conversa(List<Pessoa> mesa) {

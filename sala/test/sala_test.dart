@@ -1,7 +1,5 @@
-import 'package:sala/grafos/rodada_de_negocios/grafo_de_pessoas.dart';
-import 'package:sala/grafos/rodada_de_negocios/pessoa.dart';
-import 'package:sala/sala.dart';
-import 'package:test/test.dart';
+import '../grafos/rodada_de_negocios/mesa.dart';
+import '../grafos/rodada_de_negocios/pessoa.dart';
 
 List<Pessoa> criar_mesa(Pessoa cabecaDaMesa) {
   List<Pessoa> mesa = [];
@@ -38,18 +36,34 @@ void main() {
     Pessoa(nome: "Bianca Martins"),
   ];
 
-  for (var pessoa in pessoas) {
-    pessoa.inicializa_pessoa(pessoas);
+  Mesa novaMesa = Mesa([]);
+
+  for (var i = 0; i <= 3; i++) {
+    novaMesa.sentarNaMesa(pessoas[i]);
   }
 
-  GrafoDePessoas grafoDePessoas = GrafoDePessoas();
-  for (int i = 1; i <= 3; i++) {
-    for (int j = 1; j <= 3; j++) {
-      List<Pessoa> lista = criar_mesa(pessoas[i]);
-      print(lista);
-      grafoDePessoas.conversa(lista);
-    }
+  for (var i = 0; i <= 3; i++) {
+    print(pessoas[i]);
+    print(pessoas[i].opcoes);
   }
+
+  for (var i = 3; i < 6; i++) {
+    novaMesa.sentarNaMesa(pessoas[i]);
+  }
+
+  for (var i = 0; i < 3; i++) {
+    print(pessoas[i]);
+    print(pessoas[i].opcoes);
+  }
+
+  // GrafoDePessoas grafoDePessoas = GrafoDePessoas();
+  // for (int i = 1; i <= 3; i++) {
+  //   for (int j = 1; j <= 3; j++) {
+  //     List<Pessoa> lista = criar_mesa(pessoas[i]);
+  //     print(lista);
+  //     grafoDePessoas.conversa(lista);
+  //   }
+  // }
 
   // for (List<Pessoa> mesa in mesas) {
   //   print(mesa.first.nome);

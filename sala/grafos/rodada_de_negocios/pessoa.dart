@@ -5,17 +5,9 @@ class Pessoa {
 
   Pessoa({required this.nome});
 
-  void inicializa_pessoa(List<Pessoa> todasPessoas) {
-    for (var pessoa in todasPessoas) {
-      if (pessoa != this) {
-        this.opcoes.add(pessoa);
-      }
-    }
-  }
-
   void fazerNetworking(Pessoa pessoa) {
-    if (pessoa != this && isConhecido(pessoa)) {
-      this.opcoes.remove(pessoa);
+    if (pessoa != this && !isConhecido(pessoa)) {
+      this.opcoes.add(pessoa);
       this.grau++;
     }
   }
